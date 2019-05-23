@@ -45,16 +45,4 @@ public class Album {
     @JsonBackReference
     @JoinColumn(name = "ArtistId")
     private Artist artist;
-
-    public Album(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
 }
