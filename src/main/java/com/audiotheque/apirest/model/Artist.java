@@ -10,11 +10,6 @@ import java.util.List;
 @Table(name="Artist")
 public class Artist {
 
-    @OneToMany(mappedBy = "artist")
-    @JsonManagedReference
-    //@JsonIgnoreProperties("artist")
-    private List<Album> albums;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "ArtistId")
@@ -47,4 +42,8 @@ public class Artist {
     public void setName(String name) {
         this.name = name;
     }
+
+    @OneToMany(mappedBy = "artist")
+    @JsonManagedReference
+    private List<Album> albums;
 }
