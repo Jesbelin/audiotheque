@@ -65,7 +65,11 @@ public class ArtistService {
     }
 
     //modification d'un artiste
-    public Artist updateArtist (Integer id, Artist artist){
+    public Artist updateArtist (Integer id, Artist artist) throws ConflictException{
+        //vérifier si l'artiste existe déjà
+        if (artistRepository.findByName(artist.getName()) !=null){
+            throw new ConflictException ("L'artiste " + artist.getName() + " existe déjà");
+        }
         return artistRepository.save(artist);
     }
 

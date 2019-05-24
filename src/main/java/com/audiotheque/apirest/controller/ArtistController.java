@@ -63,7 +63,7 @@ public class ArtistController {
     )
     public Artist updateArtist (
             @PathVariable (value = "id") Integer id,
-            @RequestBody Artist artist)
+            @RequestBody Artist artist) throws ConflictException
     {
         return artistService.updateArtist(id, artist);
     }
